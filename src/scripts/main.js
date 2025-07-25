@@ -1,3 +1,4 @@
+import { addPlant, usePlants } from "./field.js";
 import {createPlan} from "./plan.js"
 import { createAsparagus } from "./seeds/asparagus.js";
 import { createCorn } from "./seeds/corn.js";
@@ -16,6 +17,16 @@ const sunflower = createSunflower();
 const wheat = createWheat();
 
 console.log(asparagus, corn, potato, soybean, sunflower, wheat)
+
+const seeds = [asparagus, corn, potato, soybean, sunflower, wheat]
+
+for (const seed of seeds) {
+    addPlant(seed)
+}
+
+const printSeeds = usePlants();
+
+console.log(...printSeeds);
 
 console.log("Welcome to the main module")
 
