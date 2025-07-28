@@ -6,16 +6,21 @@ import { createSunflower } from "./seeds/sunflower.js";
 import { createWheat } from "./seeds/wheat.js";
 import { addPlant } from "./field.js";
 
+// Creates a seed object for each item within matrix parameter 
+// and adds to plantsInField array
 export const plantSeeds = (plan) => {
+    // Loops through each subArray
     for (const row of plan) {
+        // Loops through each item in each subArray
         for (const seed of row) {
+            // Empty variable to assign seed object to
             let seedToPlant 
             
             
             
-            
-            if (seed === "Asparagus") {
-            seedToPlant = createAsparagus(seed)
+        // Checks the value of the seed string and calls the appropriate function
+        if (seed === "Asparagus") {
+        seedToPlant = createAsparagus(seed)
         }    
         if (seed === "Corn") {
             seedToPlant = createCorn(seed)
@@ -32,6 +37,7 @@ export const plantSeeds = (plan) => {
         if (seed === "Wheat") {
             seedToPlant = createWheat(seed)
         }    
+        // Adds seed object to the plantsInField array
         addPlant(seedToPlant)
     }
     
