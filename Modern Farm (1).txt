@@ -1,0 +1,75 @@
+title Modern Farm
+
+participant main.js
+participant field.js
+
+participant plan.js
+participant tractor.js
+participant harvest.js
+
+main.js <- field.js: Import usePlants
+main.js <- plan.js: Import createPlan
+main.js <- tractor.js: Import plantSeeds
+main.js <- harvest.js: Import harvestPlants
+
+
+main.js -> plan.js: Invoke createPlan()
+main.js <-- plan.js: Returns a matrix (An array of nested arrays) of strings and assign to yearlyPlan
+
+
+main.js -> tractor.js: Invoke plantSeeds with yearlyPlan as the argument. 
+
+tractor.js <- asparagus.js: Import createAsparagus
+tractor.js <- corn.js: Import createCorn
+tractor.js <- potato.js: Import createPotato
+tractor.js <- soybean.js: Import createSoybean
+tractor.js <- sunflower.js: Import createSunflower
+tractor.js <- wheat.js: Import createWheat
+
+loop 
+note right of tractor.js: Loop over each subArray (row) in plan parameter
+loop 
+note right of tractor.js: Loop over each string in subArray, calling the appropriate createSeed Function
+
+tractor.js -> asparagus.js: If seed === asparagus invoke createAsparagus
+tractor.js <-- asparagus.js: Return asparagus seedObject
+
+
+tractor.js -> corn.js: If seed === corn invoke createCorn
+tractor.js <-- corn.js: Return array of 2 corn seedObject
+
+
+tractor.js -> potato.js: If seed === potato invoke createPotato
+tractor.js <-- ptoato.js: Return potato seedObject
+
+
+tractor.js -> soybean.js: If seed === soybean invoke createSoybean
+tractor.js <-- soybean.js: Return soybean seedObject
+
+
+tractor.js -> sunflower: If seed === sunflower invoke createSunflower
+tractor.js <-- sunflower.js: Return sunflower seedObject
+
+
+tractor.js -> wheat.js: If seed === wheat invoke createWheat
+tractor.js <-- wheat.js: Return wheat seedObject
+
+tractor.js -> field.js: Invoke addPlant with returned SeedObject
+
+field.js -> field.js: Adds each seedObject to the plantsInField Array
+end
+end
+
+main.js -> field.js: Invokes usePlants() and assign to plants
+main.js <-- field.js: Returns the array of all seedObject generated in loop
+
+main.js -> harvest.js: Invoke harvestPlants with the plants array as the arguement, assigning to harvestedSeeds
+main.js <-- harvest.js:  Returns harvestedSeed Array
+loop Push the appropraite number of seed object to harvestedSeed array. (If output = 6, 6 seedObject ae pushed, etc)
+end
+
+note right of main.js: Log harvestedSeeds to console. 
+
+
+
+

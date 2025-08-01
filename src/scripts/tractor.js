@@ -14,8 +14,7 @@ export const plantSeeds = (plan) => {
         // Loops through each item in each subArray
         for (const seed of row) {
             // Empty variable to assign seed object to
-            let seedToPlant 
-            
+            let seedToPlant           
             
             
         // Checks the value of the seed string and calls the appropriate function
