@@ -36,5 +36,5 @@ console.log("Welcome to the main module")
 
 const foodhtml = Catalog(harvestedSeeds)
 
-document.querySelector("container").innerHTML = foodhtml
+document.querySelector(".container").innerHTML = foodhtml
 
