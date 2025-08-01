@@ -2,7 +2,8 @@
 import { usePlants } from "./field.js";
 import {createPlan} from "./plan.js"
 import { plantSeeds } from "./tractor.js";
-import { harvestPlants } from './harvest.js';
+import { harvestPlants } from './harvester.js';
+import { Catalog } from "./catalog.js";
 
 // Invoke createPlan() and assign to variable yearlyPlan
 // createPlan() returns a matrix (An array with nested arrays)
@@ -32,4 +33,8 @@ console.log(harvestedSeeds)
 // console.log(...usePlants())
 
 console.log("Welcome to the main module")
+
+const foodhtml = Catalog(harvestedSeeds)
+
+document.querySelector("container").innerHTML = foodhtml
 
