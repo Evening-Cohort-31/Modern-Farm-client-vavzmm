@@ -23,18 +23,19 @@ const plants = usePlants();
 // output value/plant type
 const harvestedSeeds = harvestPlants(plants)
 
-// Logs harvestedSeeds array to the console
-console.log(harvestedSeeds)
+// Sort the harvested seeds alphabetically by type
 
-// console.log(...yearlyPlan)
+const sortedHarvestedSeeds = harvestedSeeds.sort((a, b) => {
+    // (Soybean, Corn, Asparagus, Wheat, Potato, Sunflower)
+    return a.type.localeCompare(b.type);
+});
 
-// plantSeeds(yearlyPlan)
-
-// console.log(...usePlants())
+// Logs sorted harvestedSeeds array to the console
+console.log(sortedHarvestedSeeds)
 
 console.log("Welcome to the main module")
 
-const foodhtml = Catalog(harvestedSeeds)
+// Use the sorted array for the catalog
+const foodhtml = Catalog(sortedHarvestedSeeds)
 
 document.querySelector(".container").innerHTML = foodhtml
-
