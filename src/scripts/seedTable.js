@@ -10,15 +10,10 @@ export const seedTable = (harvestedSeeds) => {
                 found.quantity +=1
             }
 
-
             else {
                 newSeedArray.push({type: seed.type, quantity: 1})
             }  
     }
-
-    
-
-
 
     return newSeedArray 
 }
