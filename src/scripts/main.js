@@ -4,6 +4,7 @@ import {createPlan} from "./plan.js"
 import { plantSeeds } from "./tractor.js";
 import { harvestPlants } from './harvester.js';
 import { Catalog } from "./catalog.js";
+import { seedTable } from "./seedTable.js";
 
 // Invoke createPlan() and assign to variable yearlyPlan
 // createPlan() returns a matrix (An array with nested arrays)
@@ -23,9 +24,11 @@ const plants = usePlants();
 // output value/plant type
 const harvestedSeeds = harvestPlants(plants)
 
+const countedSeeds = seedTable(harvestedSeeds)
+
 // Sort the harvested seeds alphabetically by type
 
-const sortedHarvestedSeeds = harvestedSeeds.sort((a, b) => {
+const sortedHarvestedSeeds = countedSeeds.sort((a, b) => {
     // (Soybean, Corn, Asparagus, Wheat, Potato, Sunflower)
     return a.type.localeCompare(b.type);
 });

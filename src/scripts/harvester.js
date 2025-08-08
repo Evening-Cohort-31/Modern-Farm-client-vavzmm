@@ -23,3 +23,4 @@ export const harvestPlants = (plants) => {
     
     return harvestedSeeds;
 };
+
